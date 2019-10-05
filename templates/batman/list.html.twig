@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<h1>list del batman</h1>
+<h3>subtitulo de la aplicacion</h3>
+    <p> routeName  {{ routeName  }}</p>
+    {# <p> routeParameters  {{ routeParameters  }}</p>#}
+    {# <p> allAttributes  {{ allAttributes  }}</p>#}
+
+    {% set route_name = app.request.attributes.get('_route') %}
+{% set route_parameters = app.request.attributes.get('_route_params') %}
+
+{# use this to get all the available attributes (not only routing ones) #}
+{% set all_attributes = app.request.attributes.all %}
+
+      <p> allAttributes  {{ allAttributes  }}</p>
+{% endblock %}
