@@ -22,10 +22,14 @@ class BlogController extends AbstractController
     ];
 
     /**
-     * @Route("/", name="blog_list")
+     * @Route("/{page}", name="blog_list", defaults={"page"=3})
      */
-    public function list(){
-        return new JsonResponse(self::POST);
+    public function list($page=1){
+        return new JsonResponse(
+            [
+                'page'=>$page,
+                self::POST
+            ]);
     }
 
     /**
