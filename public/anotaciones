@@ -1,3 +1,10 @@
+composer require serializer /*Sirve para convertir array a json*/
+/*dentro de conf/packages/frameworks.yaml*/
+ property_info:
+        enabled: true
+
+php bin/console debug:router
+
 php bin/console make:entity
 php bin/console make:migration   /*para esto debe estar creada la base de datos*/
 php bin/console doctrine:migrations:migrate
