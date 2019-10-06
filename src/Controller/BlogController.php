@@ -6,6 +6,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -24,10 +26,13 @@ class BlogController extends AbstractController
     /**
      * @Route("/{page}", name="blog_list", defaults={"page"=3})
      */
-    public function list($page=1){
+    public function list($page=1, Request $request){
+        $limit= $request->get("limit");
+//        return new JsonResponse($limit);
         return new JsonResponse(
             [
                 'page'=>$page,
+                'limit'=>$limit,
                 self::POST
             ]);
     }
